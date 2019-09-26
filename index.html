@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function calc_gst(val)
+	{
+		return val+(val*5/100)
+	}
+	function _ab(val)
+	{
+		let v=parseInt(val)
+		if(isNaN(v))
+		{
+			console.log('not a number')
+			return 'not a number'
+		}
+		else
+		{
+			return calc_gst(v)
+		}
+	}
+
+
+    function auto_update()
+    {
+      var numString = document.getElementById('_word').value;
+    
+
+      var output = _ab(numString);
+      document.getElementById('container').innerHTML = output;
+    }
+
+</script>
+
+  <input type="text" id="_word" size="70" onkeyup="auto_update();"
+  br/>
+  <div id="container">  dominoes pizza gst calc </div>
+
+</body>
+</html>
