@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>  Dominoes gst calculator using js </title>
+	<title></title>
 </head>
 <body>
 	<script src="https://aviaryan.github.io/BigEval.js/BigEval.js"></script>
@@ -12,42 +12,58 @@
 	{
 		return val+(val*5/100)
 	}
-	function _ab(val)
+	function v_od(val,k)
 	{
-		
-			let v=parseInt(val)
-		if(isNaN(v))
+		if(k===21)
 		{
 			var obj = new BigEval();
 			var result = obj.exec(val)
-		if(isNaN(parseInt(result)))
+		if(isNaN(parseFloat(result)))
 		{
 			console.log('not a number')
 			return [result,'not a number']
 		}
 		else
 		{
-			return [result,calc_gst(parseInt(result))]
+			return [result,calc_gst(parseFloat(result))]
 		}
+
 		}
-		else
+		else if(k===39)
 		{
-			
 			var obj = new BigEval();
 			var result = obj.exec(val)
-		if(isNaN(parseInt(result)))
+		if(isNaN(parseFloat(result)))
 		{
-		return [v,calc_gst(v)]
+		return [val,calc_gst(val)]
 			
 		}
 		else
 		{
-			return [result,calc_gst(parseInt(result))]
+			return [result,calc_gst(parseFloat(result))]
 		}
+		
+		}
+		else
+		{
+			return [val,'method not available']
 		}
 	}
+	function _ab(val)
+	{
+		
+			let v=parseFloat(val)
+		if(isNaN(v))
+		{
+			return v_od(val,21)
+		}
+		else
+		{
+			return v_od(val,39)
+			
+	}
 
-
+}
     function auto_update()
     {
       var numString = document.getElementById('_word').value;
@@ -57,7 +73,7 @@
 
 </script>
 
-  <input type="text" id="_word" size="70" onkeyup="auto_update();"
+  <input type="text" id="_word" size="20" onkeyup="auto_update();"
   br/>
   <div id="container">  dominoes pizza gst calc </div>
 
