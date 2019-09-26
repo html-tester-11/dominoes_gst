@@ -50,10 +50,8 @@
     function auto_update()
     {
       var numString = document.getElementById('_word').value;
-    
-
-      var output = _ab(numString);
-      document.getElementById('container').innerHTML = 'total value of {} after gst would be {}'.format(numString,output);
+   
+      document.getElementById('container').innerHTML = `total value of ${numString} after gst would be ${_ab(numString)}`;
     }
 
 </script>
