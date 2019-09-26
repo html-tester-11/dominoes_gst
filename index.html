@@ -4,6 +4,8 @@
 	<title></title>
 </head>
 <body>
+	<script src="https://aviaryan.github.io/BigEval.js/BigEval.js"></script>
+
 <script type="text/javascript">
 	function calc_gst(val)
 	{
@@ -11,15 +13,36 @@
 	}
 	function _ab(val)
 	{
-		let v=parseInt(val)
+		
+			let v=parseInt(val)
 		if(isNaN(v))
+		{
+			var obj = new BigEval();
+			var result = obj.exec(val)
+		if(isNaN(parseInt(result)))
 		{
 			console.log('not a number')
 			return 'not a number'
 		}
 		else
 		{
-			return calc_gst(v)
+			return calc_gst(parseInt(result))
+		}
+		}
+		else
+		{
+			
+			var obj = new BigEval();
+			var result = obj.exec(val)
+		if(isNaN(parseInt(result)))
+		{
+		return calc_gst(v)
+			
+		}
+		else
+		{
+			return calc_gst(parseInt(result))
+		}
 		}
 	}
 
@@ -30,7 +53,7 @@
     
 
       var output = _ab(numString);
-      document.getElementById('container').innerHTML = 'total price after gst in dominoes would be  '+output;
+      document.getElementById('container').innerHTML = output;
     }
 
 </script>
