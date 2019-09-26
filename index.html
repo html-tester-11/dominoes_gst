@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>  Dominoes gst calculator using js </title>
 </head>
 <body>
 	<script src="https://aviaryan.github.io/BigEval.js/BigEval.js"></script>
@@ -22,11 +23,11 @@
 		if(isNaN(parseInt(result)))
 		{
 			console.log('not a number')
-			return 'not a number'
+			return [result,'not a number']
 		}
 		else
 		{
-			return calc_gst(parseInt(result))
+			return [result,calc_gst(parseInt(result))]
 		}
 		}
 		else
@@ -36,12 +37,12 @@
 			var result = obj.exec(val)
 		if(isNaN(parseInt(result)))
 		{
-		return calc_gst(v)
+		return [v,calc_gst(v)]
 			
 		}
 		else
 		{
-			return calc_gst(parseInt(result))
+			return [result,calc_gst(parseInt(result))]
 		}
 		}
 	}
@@ -50,8 +51,8 @@
     function auto_update()
     {
       var numString = document.getElementById('_word').value;
-   
-      document.getElementById('container').innerHTML = `total value of ${numString} after gst would be ${_ab(numString)}`;
+   			n=_ab(numString)
+      document.getElementById('container').innerHTML = `total value of ${n[0]} after gst would be ${n[1]}`;
     }
 
 </script>
